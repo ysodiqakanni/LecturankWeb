@@ -1,16 +1,18 @@
-using System.Diagnostics;
-using LecturankWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using LecturankWeb.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using LecturankWeb.Data;
 
 namespace LecturankWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly LecturankDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(LecturankDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -23,10 +25,26 @@ namespace LecturankWeb.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+
+        [HttpGet]
+        public IActionResult SearchSchool(string query)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var schools = _context.Schools
+                .Where(s => s.Name.Contains(query) || s.Address.Contains(query))
+                .ToList();
+
+            return View("SearchSchoolResults", schools);
+        }
+
+
+        [HttpPost]
+        public IActionResult SearchLecturer(int schoolId, string query)
+        {
+            var lecturers = _context.Lecturers
+                .Where(l => l.SchoolId == schoolId && (l.Name.Contains(query) || l.ContactInformation.Contains(query)))
+                .ToList();
+
+            return View("SearchLecturerResults", lecturers);
         }
     }
 }

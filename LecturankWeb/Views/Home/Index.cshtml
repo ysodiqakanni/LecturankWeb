@@ -5,4 +5,11 @@
 <div class="text-center">
     <h1 class="display-4">Welcome to Lecturank</h1>
     <p>The home of the most reliable reviews for Nigerian Lecturers.</p> 
+    <h2>Search Schools</h2>
+
+    <form asp-controller="Home" asp-action="SearchSchool" method="get">
+        <input type="text" name="query" placeholder="Search schools...">
+        <input type="submit" value="Search">
+    </form>
+
 </div>
