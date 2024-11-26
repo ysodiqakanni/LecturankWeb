@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.Razor;
 namespace LecturankWeb
 {
     public class Program
@@ -7,7 +8,8 @@ namespace LecturankWeb
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews()
+                .AddRazorRuntimeCompilation();
 
             var app = builder.Build();
 
