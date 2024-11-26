@@ -20,6 +20,10 @@ namespace LecturankWeb.Controllers
             return View();
         }
 
+        public IActionResult School()
+        {
+            return View("Index");
+        }
         public IActionResult Privacy()
         {
             return View();
