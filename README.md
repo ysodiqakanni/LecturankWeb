@@ -1,7 +1,13 @@
 # LecturankWeb
 
-# Items todo:
+# Description
 
+# How to setup and launch this project
+
+# Tech tools used
+
+
+# Items todo:
 - Create a Lecturers search page with dummy data.
 - Lecturers profile page: will be used to display the lecturer details and reviews.
 - Login modal
