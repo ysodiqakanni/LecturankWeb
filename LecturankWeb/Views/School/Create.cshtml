@@ -1,20 +1,24 @@
 ﻿@model LecturankWeb.Models.School
 
-<h7>Create</h7>
-<h8>School Info</h8>
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+<h4>School Info</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" asp-controller="School" method="post">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" class="form-control" autocomplete="off" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
+                <input asp-for="Address" class="form-control" autocomplete="off" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <br />
@@ -27,3 +31,9 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

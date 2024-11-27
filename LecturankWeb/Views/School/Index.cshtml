@@ -1,8 +1,5 @@
 ﻿@model IEnumerable<LecturankWeb.Models.School>
 
-@{
-    ViewData["Title"] = "Index";
-}
 
 
 <h2>School</h2>
@@ -20,6 +17,7 @@
 </p>
 
 <table class="table">
+    <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -29,6 +27,8 @@
         </th>
         <th></th>
     </tr>
+    </thead>
+    <tbody>
 
     @foreach (var item in Model)
     {
@@ -46,5 +46,6 @@
             </td>
         </tr>
     }
+    </tbody>
 
 </table>

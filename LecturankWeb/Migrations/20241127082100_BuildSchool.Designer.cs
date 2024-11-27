@@ -11,15 +11,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LecturankWeb.Migrations
 {
     [DbContext(typeof(LecturankDbContext))]
-    [Migration("20241126214721_AddIsActiveColumn")]
-    partial class AddIsActiveColumn
+    [Migration("20241127082100_BuildSchool")]
+    partial class BuildSchool
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.11")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

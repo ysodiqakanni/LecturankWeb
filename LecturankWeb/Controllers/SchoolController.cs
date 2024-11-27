@@ -27,7 +27,7 @@ namespace LecturankWeb.Controllers
         }
 
         // GET: Schools/Details/5
-        public IActionResult Details(int id)
+        public IActionResult Details(Guid id)
         {
             var school = _context.Schools
                 .Include(s => s.Lecturers)
@@ -43,6 +43,7 @@ namespace LecturankWeb.Controllers
 
         // POST: Schools/Create
         [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> Create(School school)
         {
             if (ModelState.IsValid)
@@ -52,12 +53,21 @@ namespace LecturankWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            else
+            {
+                // Log invalid model state
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                foreach (var error in errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
+            }
             return View(school);
         }
 
 
         // GET: Schools/Edit/5
-        public IActionResult Edit(int id)
+        public IActionResult Edit(Guid id)
         {
             var school = _context.Schools.Find(id);
             return View(school);
@@ -77,7 +87,7 @@ namespace LecturankWeb.Controllers
         }
 
         // GET: Schools/Delete/5
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Guid id)
         {
             var school = _context.Schools.Find(id);
             return View(school);
@@ -85,7 +95,7 @@ namespace LecturankWeb.Controllers
 
         // POST: Schools/Delete/5
         [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(Guid id)
         {
             var school = _context.Schools.Find(id);
             school.IsActive = false;
