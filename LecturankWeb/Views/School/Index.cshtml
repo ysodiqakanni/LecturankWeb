@@ -1,0 +1,25 @@
+﻿@model IEnumerable<LecturankWeb.Models.School>
+
+<h1>Schools</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var school in Model)
+        {
+            <tr>
+                <td>@school.Name</td>
+                <td>@school.Address</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@school.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

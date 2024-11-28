@@ -1,0 +1,40 @@
+﻿@model LecturankWeb.Models.School
+
+<div class="school-profile">
+    <h1>@Model.Name</h1>
+    <p>@Model.Address</p>
+
+    <div class="about">
+        <h3>About</h3>
+        <p>@Model.About</p>
+    </div>
+
+    <div class="background-picture">
+        <h3>Background Picture</h3>
+        <img src="@Model.BackgroundPicture" alt="Background Picture" class="img-fluid" />
+    </div>
+
+    <div class="extra-photos">
+        <h3>Photos</h3>
+        @foreach (var photo in Model.ExtraPhotos)
+        {
+            <img src="@photo" alt="Extra Photo" class="img-thumbnail" />
+        }
+    </div>
+
+    <div class="amenities">
+        <h3>Amenities</h3>
+        <p>@Model.Amenities</p>
+    </div>
+
+    <div class="reviews">
+        <h3>Reviews</h3>
+        @foreach (var review in Model.Reviews)
+        {
+            <div class="review">
+                <p>@review.Content</p>
+                <small>Rating: @review.Rating | Date: @review.Date.ToShortDateString()</small>
+            </div>
+        }
+    </div>
+</div>

@@ -1,22 +1,66 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+/* School Profile Page Styles */
+.school-profile {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+    .school-profile h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+    .school-profile p {
+        font-size: 1.2em;
+    }
+
+.background-picture img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.extra-photos img {
+    margin: 5px;
+    width: calc(33.33% - 10px);
+    height: auto;
+    display: inline-block;
+}
+
+.about, .amenities, .reviews {
+    margin: 20px 0;
+}
+
+.review {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+    .review small {
+        display: block;
+        color: #666;
+    }
