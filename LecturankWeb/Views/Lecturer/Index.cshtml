@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Lecturer Portal";
+   
+}
+@model IEnumerable<LecturankWeb.ViewModels.LecturerViewModel>
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1>Welcome to the Lecturers Page</h1>
+        <p>Explore the list of lecturers, create a new profile, or view detailed profiles.</p>
+    </div>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-primary me-2" asp-controller="Lecturer" asp-action="Create">Create Lecturer Profile</a>
+        <a class="btn btn-secondary" asp-controller="Lecturer" asp-action="Profile">View Sample Profile</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>List of Lecturers</h3>
+        </div>
+        <div class="card-body">
+            @if (Model.Any())
+            {
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Name</th>
+                            <th>School</th>
+                            <th>Department</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var lecturer in Model)
+                        {
+                            <tr>
+                                <td>@lecturer.Name</td>
+                                <td>@lecturer.School</td>
+                                <td>@lecturer.Department</td>
+                                <td>
+                                    <a class="btn btn-info btn-sm" asp-controller="Lecturer" asp-action="Profile" asp-route-id="@lecturer.Id">View Profile</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No lecturers available. Start by <a asp-controller="Lecturer" asp-action="Create">creating a profile</a>.</p>
+            }
+        </div>
+    </div>
+</div>

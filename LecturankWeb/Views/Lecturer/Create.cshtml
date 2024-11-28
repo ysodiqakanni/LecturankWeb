@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Create Lecturer Profile";
+}
+
+<div class="container mt-5">
+    <h2>Create Lecturer Profile</h2>
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter lecturer's name">
+        </div>
+        <div class="mb-3">
+            <label for="school" class="form-label">School</label>
+            <select class="form-select" id="school">
+                <option value="" selected disabled>Choose school</option>
+                <option value="School of Science">School of Science</option>
+                <option value="School of Arts">School of Arts</option>
+                <option value="School of Business">School of Business</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <input type="text" class="form-control" id="department" placeholder="Enter department">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<a class="btn btn-outline-secondary mb-3" asp-controller="Lecturer" asp-action="Index">
+    <i class="bi bi-arrow-left"></i> Back to Lecturers Page
+</a>

@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Lecturer Profile";
+}
+
+<div class="container mt-5">
+    <h2>Lecturer Profile</h2>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Dr. John Doe</h5>
+            <p class="card-text"><strong>School:</strong> School of Science</p>
+            <p class="card-text"><strong>Department:</strong> Computer Science</p>
+            <p class="card-text">
+                <strong>Courses:</strong>
+                <ul>
+                    <li>Introduction to Programming</li>
+                    <li>Data Structures</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+    <div>
+        <h3>Reviews</h3>
+        <ul class="list-group">
+            <li class="list-group-item">"Amazing teacher! Very clear explanations." - Student A</li>
+            <li class="list-group-item">"Could improve on responsiveness to emails." - Student B</li>
+        </ul>
+    </div>
+</div>
+<a class="btn btn-outline-secondary mb-3" asp-controller="Lecturer" asp-action="Index">
+    <i class="bi bi-arrow-left"></i> Back to Lecturers Page
+</a>
