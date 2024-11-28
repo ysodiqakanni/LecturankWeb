@@ -1,24 +1,33 @@
-/* Reset some default styling */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Page Background and Text Color */
 html {
     font-size: 16px;
-    font-family: 'Roboto', sans-serif; /* Use a modern font */
-    background-color: #f4f6f9; /* Light background color */
-    color: #2c3e50; /* Darker text for readability */
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    color: #2c3e50;
 }
 
+/* Responsive Design */
+@media (min-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+/* Body Margin for Footer Space */
 body {
     margin-bottom: 60px;
 }
 
-/* Buttons */
+/* Button Styles */
 .btn {
-    background-color: #3498db; /* Primary button color */
+    background-color: #3498db;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -30,69 +39,131 @@ body {
         background-color: #2980b9;
     }
 
+    /* Focus Styles */
     .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
         box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
     }
 
-/* General Layout */
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-/* School Profile Page Styles */
+/* School Profile Container */
 .school-profile {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #ffffff; /* White background for the profile section */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
-    border-radius: 8px; /* Rounded corners */
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-    .school-profile h1 {
-        font-size: 2.5em;
-        margin-bottom: 20px;
-        color: #34495e; /* Darker heading color */
-        text-align: center; /* Center aligned heading */
+/* Image Slider */
+.image-slider {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+    .image-slider .slide {
+        display: none;
+        width: 100%;
+        height: auto;
     }
 
-    .school-profile p {
-        font-size: 1.2em;
-        line-height: 1.6; /* Improved readability */
+        .image-slider .slide.active {
+            display: block;
+        }
+
+    .image-slider img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
     }
 
-/* Background and Images */
-.background-picture img {
-    width: 100%;
-    height: auto;
+    /* Navigation Buttons */
+    .image-slider .prev, .image-slider .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    .image-slider .prev {
+        left: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .image-slider .next {
+        right: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+        .image-slider .prev:hover, .image-slider .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+/* School Details Styles */
+.school-name {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2039d3;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.school-address {
+    font-size: 18px;
+    font-style: italic;
+    color: #d33737;
     margin-bottom: 20px;
-    border-radius: 8px; /* Rounded corners for images */
+    border-left: 5px solid #d33737;
+    padding-left: 10px;
+    text-align: center;
 }
 
-.extra-photos img {
-    margin: 5px;
-    width: calc(33.33% - 10px);
-    height: auto;
-    display: inline-block;
-    border-radius: 5px; /* Rounded corners for thumbnails */
-}
-
-/* Sections */
+/* About, Amenities, and Reviews Sections */
 .about, .amenities, .reviews {
     margin: 20px 0;
     color: #34495e;
 }
 
+/* Amenities Grid */
+.amenities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.amenity-item {
+    flex: 1 1 calc(50% - 20px);
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+    .amenity-item img {
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+    }
+
+/* Review Section */
 .review {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
     margin-bottom: 10px;
-    transition: background-color 0.3s ease; /* Smooth background transition */
+    transition: background-color 0.3s ease;
 }
 
     .review:hover {
-        background-color: #ecf0f1; /* Light hover effect for reviews */
+        background-color: #ecf0f1;
     }
 
     .review small {
@@ -100,45 +171,34 @@ html {
         color: #666;
     }
 
-/* Advanced Styling for School Name and Address */
-.school-name {
-    font-size: 36px;
-    font-weight: bold;
-    color: #2039d3;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adding shadow */
-    background: linear-gradient(to right, #2039d3, #4a90e2); /* Gradient background */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: color 0.3s ease-in-out; /* Smooth transition for color */
-    text-align: center; /* Center aligned text */
-}
-
-    .school-name:hover {
-        color: #f39c12; /* Color change on hover */
-    }
-
-.school-address {
-    font-size: 18px;
-    font-style: italic;
-    color: #d33737;
+/* School List Styles */
+.page-title {
+    text-align: center;
+    font-size: 2em; /* Reduced font size */
     margin-bottom: 20px;
-    border-left: 5px solid #d33737; /* Adding a left border */
-    padding-left: 10px; /* Padding to the left */
-    background: linear-gradient(to left, #d33737, #e74c3c); /* Gradient background */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: color 0.3s ease-in-out; /* Smooth transition for color */
-    text-align: center; /* Center aligned text */
 }
 
-    .school-address:hover {
-        color: #2ecc71; /* Color change on hover */
+/* Updated School List Styles */
+.school-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+    .school-list li {
+        margin: 10px 0;
     }
 
-/* Responsive Design */
-@media (min-width: 768px) {
-    html {
-        font-size: 18px;
-    }
-}
+        .school-list li a {
+            display: inline-block;
+            padding: 5px 10px; /* Reduced padding */
+            font-size: 1.2em; /* Reduced font size */
+            text-decoration: none;
+            color: white; /* White text color */
+            background-color: #1a237e; /* Deep blue background color */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease;
+        }
+
+            .school-list li a:hover {
+                background-color: #0d47a1; /* Slightly lighter deep blue on hover */
+            }

@@ -16,19 +16,16 @@ namespace LecturankWeb.Controllers
                 {
                     Id = 1,
                     Name = "Federal University of Technology, Akure",
-                    Address = "Akure, Ondo State, Nigeria"
                 },
                 new SchoolListViewModel
                 {
                     Id = 2,
                     Name = "School 2",
-                    Address = "Address 2"
                 },
                 new SchoolListViewModel
                 {
                     Id = 3,
                     Name = "School 3",
-                    Address = "Address 3"
                 }
             };
 
