@@ -16,21 +16,54 @@ namespace LecturankWeb.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var schools = new List<SchoolListViewModel>()
+            {
+                new SchoolListViewModel()
+                {
+                    Id = 1,
+                    Name = "School1",
+                    Address = "Address 1"
+                },
+                new SchoolListViewModel()
+                {
+                    Id = 2,
+                    Name = "School2",
+                    Address = "Address 2"
+                },
+                new SchoolListViewModel()
+                {
+                    Id = 3,
+                    Name = "School13",
+                    Address = "Address 3"
+                },
+            };
             return View(await _context.Schools.ToListAsync());
         }
 
         public IActionResult Details(int id)
-        {
-            var school = _context.Schools
-                .Include(s => s.Reviews)
-                .FirstOrDefault(s => s.Id == id);
+        { 
 
-            if (school == null)
+            var schoolDetails = new SchoolDetailsViewModel
             {
-                return NotFound();
-            }
+                Name = "My School",
+                Amenities = new List<string> { "Water", "Library", "Sports complex" },
+                CoverPhotoUrl = "www.img.com",
+                Reviews = new List<SchoolReview>
+                {
+                    new SchoolReview
+                    {
+                        ReviewerName = "John Doe",
+                        Content = "Bad school"
+                    },
+                    new SchoolReview
+                    {
+                        ReviewerName = "Shola Ade",
+                        Content = "Great school"
+                    }
+                }
+            };
 
-            return View(school);
+            return View(schoolDetails);
         }
     }
 }
