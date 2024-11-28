@@ -14,7 +14,8 @@
         public string LogoImageUrl { get; set; }
         public string CoverPhotoUrl { get; set; }
         public List<string> Amenities { get; set; }
-        public List <SchoolReview> Reviews { get; set; }
+        public List<string> ExtraPhotos { get; set; }
+        public List<SchoolReview> Reviews { get; set; }
     }
 
     public class SchoolReview
