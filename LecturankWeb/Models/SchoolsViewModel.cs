@@ -10,6 +10,7 @@
     public class SchoolDetailsViewModel
     {
         public string Name { get; set; }
+        public string Address { get; set; }  // Add this line
         public string Description { get; set; }
         public string LogoImageUrl { get; set; }
         public string CoverPhotoUrl { get; set; }

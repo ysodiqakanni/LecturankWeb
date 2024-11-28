@@ -45,6 +45,7 @@ namespace LecturankWeb.Controllers
                 schoolDetails = new SchoolDetailsViewModel
                 {
                     Name = "Federal University of Technology, Akure",
+                    Address = "Akure, Ondo State, Nigeria",
                     Description = "Welcome to FUTA. You are welcome to the Federal University of Technology, Akure (FUTA), a top ranking University of technology in Nigeria and indeed the nation's pride. Established in 1981, the university has grown tremendously, stretching its academic disciplines and research across eight different schools and over fifty academic departments.",
                     Amenities = new List<string> { "Water", "Library", "Sports Complex", "Laboratories", "Hostel" },
                     LogoImageUrl = "https://www.nairaland.com/attachments/11669470_images7_jpeg_jpegc250b88d3a108a1e74e6c9bf7bb78252",
@@ -79,6 +80,7 @@ namespace LecturankWeb.Controllers
                 schoolDetails = new SchoolDetailsViewModel
                 {
                     Name = "School 2",
+                    Address = "Address 2",
                     Description = "Description for School 2.",
                     Amenities = new List<string> { "Library", "Gym", "Cafeteria" },
                     LogoImageUrl = "https://example.com/logo2.jpg",
@@ -111,6 +113,7 @@ namespace LecturankWeb.Controllers
                 schoolDetails = new SchoolDetailsViewModel
                 {
                     Name = "School 3",
+                    Address = "Address 3",
                     Description = "Description for School 3.",
                     Amenities = new List<string> { "Swimming Pool", "Library", "Cafeteria" },
                     LogoImageUrl = "https://example.com/logo3.jpg",
