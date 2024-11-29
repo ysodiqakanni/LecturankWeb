@@ -1,3 +1,4 @@
+using LecturankWeb.Helpers;
 using Microsoft.AspNetCore.Mvc.Razor;
 namespace LecturankWeb
 {
@@ -10,6 +11,7 @@ namespace LecturankWeb
             // Add services to the container.
             builder.Services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
+            builder.Services.AddHttpClient<HttpService>();
 
             var app = builder.Build();
 
