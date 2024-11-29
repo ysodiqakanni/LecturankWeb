@@ -1,0 +1,6 @@
+@LecturankApi_HostAddress = http://localhost:5157
+
+GET {{LecturankApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
