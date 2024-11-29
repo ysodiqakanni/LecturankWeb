@@ -18,7 +18,8 @@ namespace LecturankWeb.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var data = await _httpService.GetAsync<string>("admin/schools");
+            //var data = await _httpService.GetAsync<string>("admin/schools");
+            var schools = await _httpService.GetAsync<List<School>>("schools");
             return View();
         }
 
@@ -32,5 +33,11 @@ namespace LecturankWeb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+    }
+    public class School
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string CodeName { get; set; }
     }
 }

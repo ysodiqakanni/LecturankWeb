@@ -10,7 +10,7 @@ namespace LecturankWeb.Helpers
         public HttpService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            httpClient.BaseAddress = new Uri("https://localhost:7283/api/");
+            httpClient.BaseAddress = new Uri("https://localhost:32774/api/");
             _httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_TOKEN");
             
         }
