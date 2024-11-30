@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<LecturankWeb.Models.SchoolListViewModel>
 
-<h3 class="page-title">Schools</h3>
+<h4 class="page-title">Schools</h4>
 
 <ul class="school-list">
     @foreach (var school in Model)
     {
         <li>
-            <a class="school-link" asp-action="Details" asp-route-id="@school.Id">@school.Name</a>
+            <a class="school-link" asp-controller="School" asp-action="Details" asp-route-slug="@school.Slug">@school.Name</a>
         </li>
     }
 </ul>

@@ -1,36 +1,54 @@
-namespace LecturankWeb
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using LecturankWeb.Services;
+
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+        CreateHostBuilder(args).Build().Run();
+    }
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews()
-                .AddRazorRuntimeCompilation();
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
             {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
-            }
+                webBuilder.UseStartup<Startup>();
+            });
+}
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        services.AddSingleton<SchoolService>(); // Register the service here
+    }
 
-            app.UseRouting();
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts();
+        }
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
 
-            app.UseAuthorization();
+        app.UseRouting();
 
-            app.MapControllerRoute(
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
-            app.Run();
-        }
+        });
     }
 }

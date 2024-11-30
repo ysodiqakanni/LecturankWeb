@@ -13,7 +13,6 @@ html {
     color: #2c3e50;
 }
 
-/* Responsive Design */
 @media (min-width: 768px) {
     html {
         font-size: 18px;
@@ -39,7 +38,6 @@ body {
         background-color: #2980b9;
     }
 
-    /* Focus Styles */
     .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
         box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
     }
@@ -52,6 +50,13 @@ body {
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+}
+
+@media (max-width: 767px) {
+    .school-profile {
+        width: 95%;
+        padding: 10px;
+    }
 }
 
 /* Image Slider */
@@ -78,7 +83,6 @@ body {
         border-radius: 8px;
     }
 
-    /* Navigation Buttons */
     .image-slider .prev, .image-slider .next {
         cursor: pointer;
         position: absolute;
@@ -128,7 +132,6 @@ body {
     text-align: center;
 }
 
-/* About, Amenities, and Reviews Sections */
 .about, .amenities, .reviews {
     margin: 20px 0;
     color: #34495e;
@@ -148,11 +151,17 @@ body {
     margin-bottom: 10px;
 }
 
-    .amenity-item img {
-        margin-right: 10px;
-        width: 24px;
-        height: 24px;
+@media (max-width: 767px) {
+    .amenity-item {
+        flex: 1 1 100%;
     }
+}
+
+.amenity-item img {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
 
 /* Review Section */
 .review {
@@ -174,11 +183,10 @@ body {
 /* School List Styles */
 .page-title {
     text-align: center;
-    font-size: 2em; /* Reduced font size */
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
-/* Updated School List Styles */
 .school-list {
     list-style-type: none;
     padding-left: 0;
@@ -190,15 +198,15 @@ body {
 
         .school-list li a {
             display: inline-block;
-            padding: 5px 10px; /* Reduced padding */
-            font-size: 1.2em; /* Reduced font size */
+            padding: 5px 10px;
+            font-size: 1.2em;
             text-decoration: none;
-            color: white; /* White text color */
-            background-color: #1a237e; /* Deep blue background color */
-            border-radius: 5px; /* Rounded corners */
+            color: white;
+            background-color: #1a237e;
+            border-radius: 5px;
             transition: background-color 0.3s ease;
         }
 
             .school-list li a:hover {
-                background-color: #0d47a1; /* Slightly lighter deep blue on hover */
+                background-color: #0d47a1;
             }

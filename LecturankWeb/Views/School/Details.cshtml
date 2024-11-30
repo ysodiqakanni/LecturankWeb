@@ -3,21 +3,12 @@
 <div class="school-profile">
     <!-- Image Slider -->
     <div class="image-slider">
-        <div class="slide active">
-            <img src="https://tribuneonlineng.com/wp-content/uploads/2016/08/futa-gate.jpg" alt="Photo 1">
-        </div>
-        <div class="slide">
-            <img src="https://www.nairaland.com/attachments/11669471_91c89bb464354869ae95105da911b95b_jpeg61f8a0f5db5b3f7b76c760ccc386fa3d" alt="Photo 2">
-        </div>
-        <div class="slide">
-            <img src="https://www.nairaland.com/attachments/11669586_images12_jpeg_jpeg9bd644d4a5050c34dc065d7f8f336c3f" alt="Photo 3">
-        </div>
-        <div class="slide">
-            <img src="https://www.nairaland.com/attachments/11669617_images13_jpeg_jpegc38cacc753be0ec722c575388df668f6" alt="Photo 4">
-        </div>
-        <div class="slide">
-            <img src="https://www.nairaland.com/attachments/11669619_images15_jpeg_jpegae88086c12dcb82a59e4407c891bbff6" alt="Photo 5">
-        </div>
+        @foreach (var photo in Model.ExtraPhotos)
+        {
+            <div class="slide">
+                <img src="@photo" alt="Photo">
+            </div>
+        }
         <!-- Left and right controls -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>

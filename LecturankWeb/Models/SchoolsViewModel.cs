@@ -5,12 +5,14 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
+        public string Slug { get; set; }  // Add this line
     }
 
     public class SchoolDetailsViewModel
     {
         public string Name { get; set; }
-        public string Address { get; set; }  // Add this line
+        public string Slug { get; set; }  // Add this line
+        public string Address { get; set; }
         public string Description { get; set; }
         public string LogoImageUrl { get; set; }
         public string CoverPhotoUrl { get; set; }
